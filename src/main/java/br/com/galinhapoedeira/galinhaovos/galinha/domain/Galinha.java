@@ -31,7 +31,6 @@ public class Galinha {
 	private LocalDateTime dataHoraDaUltimaAlteracao;
 	
 	public Galinha(UUID idGalinha, @NotBlank String nomeCompleto, @NotNull LocalDate dataNascimento) {
-		this.idGalinha = UUID.randomUUID();
 		this.idGalinha = idGalinha;
 		this.nomeCompleto = nomeCompleto;
 		this.dataNascimento = dataNascimento;
