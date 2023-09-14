@@ -4,11 +4,13 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import br.com.galinhapoedeira.galinhaovos.galinha.application.api.GalinhaRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
@@ -29,11 +31,10 @@ public class Galinha {
 	private LocalDate dataNascimento;
 	private LocalDateTime dataHoraDoCadastro;
 	private LocalDateTime dataHoraDaUltimaAlteracao;
-	
-	public Galinha(UUID idGalinha, @NotBlank String nomeCompleto, @NotNull LocalDate dataNascimento) {
-		this.idGalinha = idGalinha;
-		this.nomeCompleto = nomeCompleto;
-		this.dataNascimento = dataNascimento;
+
+	public Galinha(@Valid GalinhaRequest galinhaRequest) {
+		this.nomeCompleto = galinhaRequest.getNomeCompleto();
+		this.dataNascimento = galinhaRequest.getDataNascimento();
 		this.dataHoraDoCadastro = LocalDateTime.now();
 	}
 }
