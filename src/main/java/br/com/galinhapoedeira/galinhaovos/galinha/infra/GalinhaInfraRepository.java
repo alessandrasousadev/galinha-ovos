@@ -11,10 +11,12 @@ import lombok.extern.log4j.Log4j2;
 @Log4j2
 @RequiredArgsConstructor
 public class GalinhaInfraRepository implements GalinhaRepository {
+	private final GalinhaSpringDataJPARepository galinhaSpringDataJPARepository;
 
 	@Override
 	public Galinha salva(Galinha galinha) {
 		log.info("[inicia] GalinhaInfraRepository - salva");
+		galinhaSpringDataJPARepository.save(galinha);
 		log.info("[finaliza] GalinhaInfraRepository - salva");
 		return galinha;
 	}
