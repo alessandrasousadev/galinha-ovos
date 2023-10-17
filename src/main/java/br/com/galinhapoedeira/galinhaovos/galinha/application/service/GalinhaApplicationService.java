@@ -32,8 +32,9 @@ public class GalinhaApplicationService implements GalinhaService {
 	@Override
 	public List<GalinhaListResponse> buscaTodasGalinhas() {
 		log.info("[inicia] GalinhaApplicationService - buscaTodasGalinhas");
+		List<Galinha> galinhas = galinhaRepository.buscaTodasGalinhas();	
 		log.info("[finaliza] GalinhaApplicationService - buscaTodasGalinhas");
-		return null;
+		return GalinhaListResponse.converte(galinhas);
 	}
 
 }
