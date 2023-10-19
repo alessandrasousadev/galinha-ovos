@@ -1,6 +1,7 @@
 package br.com.galinhapoedeira.galinhaovos.galinha.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,6 +29,14 @@ public class GalinhaController implements GalinhaAPI {
 		List<GalinhaListResponse> galinhas = galinhaService.buscaTodasGalinhas();
 		log.info("[finaliza] GalinhaController - getTodasGalinhas");
 		return galinhas;
+	}
+
+	@Override
+	public GalinhaDetalhadaResponse getGalinhaAtravesId(UUID idGalinha) {
+		log.info("[inicia] GalinhaController - getGalinhaAtravesId");
+		log.info("[idGalinha] {}", idGalinha);
+		log.info("[finaliza] GalinhaController - getGalinhaAtravesId");
+		return null;
 	}
 
 }
