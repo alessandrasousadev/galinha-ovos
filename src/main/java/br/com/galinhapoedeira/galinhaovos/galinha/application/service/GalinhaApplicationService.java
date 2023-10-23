@@ -59,6 +59,9 @@ public class GalinhaApplicationService implements GalinhaService {
 	@Override
 	public void patchAlteraGalinha(UUID idGalinha, @Valid GalinhaAlteracaoRequest galinhaAlteracaoRequest) {
 		log.info("[inicia] GalinhaApplicationService - patchAlteraGalinha");
+		Galinha galinha = galinhaRepository.buscaGalinhaAtravesId(idGalinha);
+		galinha.altera(galinhaAlteracaoRequest);
+		galinhaRepository.salva(galinha);
 		log.info("[finaliza] GalinhaApplicationService - patchAlteraGalinha");
 	}
 
