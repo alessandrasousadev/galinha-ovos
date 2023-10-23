@@ -47,4 +47,10 @@ public class GalinhaApplicationService implements GalinhaService {
 		return new GalinhaDetalhadaResponse(galinha);
 	}
 
+	@Override
+	public void deletaGalinhaAtravesId(UUID idGalinha) {
+		log.info("[inicia] GalinhaApplicationService - deletaGalinhaAtravesId");
+		log.info("[inicia] GalinhaApplicationService - deletaGalinhaAtravesId");
+	}
+
 }

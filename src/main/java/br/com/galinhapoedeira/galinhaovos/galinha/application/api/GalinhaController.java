@@ -40,4 +40,12 @@ public class GalinhaController implements GalinhaAPI {
 		return galinhaDetalhada;
 	}
 
+	@Override
+	public void deletaGalinhaAtravesId(UUID idGalinha) {
+		log.info("[inicia] GalinhaController - deletaGalinhaAtravesId");
+		log.info("[idGalinha] {}", idGalinha);
+		log.info("[finaliza] GalinhaController - deletaGalinhaAtravesId");
+		galinhaService.deletaGalinhaAtravesId(idGalinha);
+	}
+
 }

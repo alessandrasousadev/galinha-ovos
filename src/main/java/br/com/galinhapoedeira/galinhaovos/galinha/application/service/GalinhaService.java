@@ -13,4 +13,5 @@ public interface GalinhaService {
 	GalinhaResponse criaGalinha(@Valid GalinhaRequest galinhaRequest);
 	List<GalinhaListResponse> buscaTodasGalinhas();
 	GalinhaDetalhadaResponse buscaGalinhaAtravesId(UUID idGalinha);
+	void deletaGalinhaAtravesId(UUID idGalinha);
 }
