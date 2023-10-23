@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.galinhapoedeira.galinhaovos.galinha.application.api.GalinhaAlteracaoRequest;
 import br.com.galinhapoedeira.galinhaovos.galinha.application.api.GalinhaDetalhadaResponse;
 import br.com.galinhapoedeira.galinhaovos.galinha.application.api.GalinhaListResponse;
 import br.com.galinhapoedeira.galinhaovos.galinha.application.api.GalinhaRequest;
@@ -52,7 +53,13 @@ public class GalinhaApplicationService implements GalinhaService {
 		log.info("[inicia] GalinhaApplicationService - deletaGalinhaAtravesId");
 		Galinha galinha = galinhaRepository.buscaGalinhaAtravesId(idGalinha);
 		galinhaRepository.deletaGalinha(galinha);
-		log.info("[inicia] GalinhaApplicationService - deletaGalinhaAtravesId");
+		log.info("[finaliza] GalinhaApplicationService - deletaGalinhaAtravesId");
+	}
+
+	@Override
+	public void patchAlteraGalinha(UUID idGalinha, @Valid GalinhaAlteracaoRequest galinhaAlteracaoRequest) {
+		log.info("[inicia] GalinhaApplicationService - patchAlteraGalinha");
+		log.info("[finaliza] GalinhaApplicationService - patchAlteraGalinha");
 	}
 
 }
