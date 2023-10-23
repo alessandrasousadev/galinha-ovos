@@ -41,4 +41,10 @@ public class GalinhaInfraRepository implements GalinhaRepository {
 		return galinha;
 	}
 
+	@Override
+	public void deletaGalinha(Galinha galinha) {
+		log.info("[inicia] GalinhaInfraRepository - deletaGalinha");
+		log.info("[inicia] GalinhaInfraRepository - deletaGalinha");
+	}
+
 }

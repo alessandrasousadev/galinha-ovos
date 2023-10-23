@@ -50,6 +50,8 @@ public class GalinhaApplicationService implements GalinhaService {
 	@Override
 	public void deletaGalinhaAtravesId(UUID idGalinha) {
 		log.info("[inicia] GalinhaApplicationService - deletaGalinhaAtravesId");
+		Galinha galinha = galinhaRepository.buscaGalinhaAtravesId(idGalinha);
+		galinhaRepository.deletaGalinha(galinha);
 		log.info("[inicia] GalinhaApplicationService - deletaGalinhaAtravesId");
 	}
 
