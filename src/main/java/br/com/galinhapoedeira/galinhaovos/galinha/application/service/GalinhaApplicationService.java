@@ -1,9 +1,11 @@
 package br.com.galinhapoedeira.galinhaovos.galinha.application.service;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import br.com.galinhapoedeira.galinhaovos.galinha.application.api.GalinhaDetalhadaResponse;
 import br.com.galinhapoedeira.galinhaovos.galinha.application.api.GalinhaListResponse;
 import br.com.galinhapoedeira.galinhaovos.galinha.application.api.GalinhaRequest;
 import br.com.galinhapoedeira.galinhaovos.galinha.application.api.GalinhaResponse;
@@ -35,6 +37,14 @@ public class GalinhaApplicationService implements GalinhaService {
 		List<Galinha> galinhas = galinhaRepository.buscaTodasGalinhas();	
 		log.info("[finaliza] GalinhaApplicationService - buscaTodasGalinhas");
 		return GalinhaListResponse.converte(galinhas);
+	}
+
+	@Override
+	public GalinhaDetalhadaResponse buscaGalinhaAtravesId(UUID idGalinha) {
+		log.info("[inicia] GalinhaApplicationService - buscaGalinhaAtravesId");
+		Galinha galinha = galinhaRepository.buscaGalinhaAtravesId(idGalinha);
+		log.info("[finaliza] GalinhaApplicationService - buscaGalinhaAtravesId");
+		return new GalinhaDetalhadaResponse(galinha);
 	}
 
 }

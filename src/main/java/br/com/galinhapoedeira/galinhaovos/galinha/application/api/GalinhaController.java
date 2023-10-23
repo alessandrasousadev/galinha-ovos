@@ -35,8 +35,9 @@ public class GalinhaController implements GalinhaAPI {
 	public GalinhaDetalhadaResponse getGalinhaAtravesId(UUID idGalinha) {
 		log.info("[inicia] GalinhaController - getGalinhaAtravesId");
 		log.info("[idGalinha] {}", idGalinha);
-		log.info("[finaliza] GalinhaController - getGalinhaAtravesId");
-		return null;
+		GalinhaDetalhadaResponse galinhaDetalhada = galinhaService.buscaGalinhaAtravesId(idGalinha);
+		log.info("[finaliza] GalinhaController - getGalinhaAtravesId");	
+		return galinhaDetalhada;
 	}
 
 }

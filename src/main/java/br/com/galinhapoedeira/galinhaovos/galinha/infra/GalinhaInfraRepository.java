@@ -1,6 +1,7 @@
 package br.com.galinhapoedeira.galinhaovos.galinha.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -29,6 +30,15 @@ public class GalinhaInfraRepository implements GalinhaRepository {
 		List<Galinha> todasGalinhas = galinhaSpringDataJPARepository.findAll();
 		log.info("[finaliza] GalinhaInfraRepository - buscaTodasGalinhas");
 		return todasGalinhas;
+	}
+
+	@Override
+	public Galinha buscaGalinhaAtravesId(UUID idGalinha) {
+		log.info("[inicia] GalinhaInfraRepository - buscaGalinhaAtravesId");
+		Galinha galinha = galinhaSpringDataJPARepository.findById(idGalinha)
+				.orElseThrow(() -> new RuntimeException("Galinha não encontrada!"));
+		log.info("[finaliza] GalinhaInfraRepository - buscaGalinhaAtravesId");
+		return galinha;
 	}
 
 }
